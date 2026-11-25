@@ -32,6 +32,7 @@ return function (ContainerBuilder $builder) : void {
         ServiceRegistry::class => static fn () => new ServiceRegistry([
             'auth' => $_ENV['AUTH_SERVICE_URL'],
             'groups' => $_ENV['GROUP_SERVICE_URL'],
+            'time' => $_ENV['TIME_SERVICE_URL'],
         ]),
     ]);
 };
