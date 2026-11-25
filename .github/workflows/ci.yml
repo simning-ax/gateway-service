@@ -10,4 +10,4 @@ jobs:
   ci:
     uses: simning-ax/.github/.github/workflows/php-ci.yml@main
     with:
-      php-version: '8.3'
+      php-version: '8.5'
