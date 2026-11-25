@@ -1,0 +1,27 @@
+services:
+  gw-service:
+    container_name: gw-service
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/var/www
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  auth-service:
+    container_name: auth-service
+    image: ghcr.io/simning-ax/auth-service:latest
+    restart: unless-stopped
+
+  group-service:
+    container_name: group-service
+    image: ghcr.io/simning-ax/group-service:latest
+    restart: unless-stopped
+
+  time-service:
+    container_name: time-service
+    image: ghcr.io/simning-ax/time-service:latest
+    restart: unless-stopped

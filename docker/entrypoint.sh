@@ -1,14 +1,18 @@
 #!/bin/sh
 set -e
 
-echo "Starting gw-service..."
+#echo "[INIT] Waiting for DB..."
+#
+#until mysql -h"$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" -e "SELECT 1" >/dev/null 2>&1; do
+#  sleep 1
+#done
 
-if [ ! -f .env ]; then
-    echo "No .env file found."
-    echo "Copying .env.example -> .env"
-    cp .env.example .env
-else
-    echo ".env already exists."
+#echo "[INIT] DB ready"
+if [ ! -f /var/www/.env ]; then
+    echo "[INIT] Creating .env from .env.example"
+    cp /var/www/.env.example /var/www/.env
 fi
+
+echo "[INIT] Starting app..."
 
 exec "$@"
