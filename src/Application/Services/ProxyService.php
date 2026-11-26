@@ -51,8 +51,13 @@ class ProxyService {
      * @return array<string, array<string>>
      */
     private function filterHeaders(array $headers) : array {
+        $excluded = [
+            'host',
+            'content-length',
+        ];
+
         foreach ($headers as $name => $values) {
-            if (strtolower($name) === 'host') {
+            if (in_array(strtolower($name), $excluded, true)) {
                 unset($headers[$name]);
             }
         }

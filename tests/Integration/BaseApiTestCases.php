@@ -6,9 +6,10 @@ namespace Tests\Integration;
 
 use DI\Container;
 use Dotenv\Dotenv;
+use PHPUnit\Framework\TestCase;
 use Slim\App;
 
-abstract class BaseApiTestCases {
+abstract class BaseApiTestCases extends TestCase {
     /**
      * @var App<Container>
      */
