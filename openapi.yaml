@@ -1,0 +1,53 @@
+openapi: 3.1.0
+
+info:
+  title: Gateway Service API
+  version: 1.1.10
+  description: >-
+    OpenAPI för hantering av gateway-servicen i simning.ax-miljön
+
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Gateway health information
+      responses:
+        '200':
+          description: Health information
+
+  /auth/health:
+    get:
+      summary: Auth service health endpoint
+      tags:
+        - Health
+
+  /auth/docs:
+    get:
+      summary: Auth service documentation
+      tags:
+        - Documentation
+
+  /group/health:
+    get:
+      summary: Group service health endpoint
+      tags:
+        - Health
+
+  /group/docs:
+    get:
+      summary: Group service documentation
+      tags:
+        - Documentation
+
+  /time/health:
+    get:
+      summary: Time service health endpoint
+      tags:
+        - Health
+
+  /time/docs:
+    get:
+      summary: Time service documentation
+      tags:
+        - Documentation

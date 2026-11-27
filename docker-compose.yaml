@@ -18,6 +18,7 @@ services:
     image: ghcr.io/simning-ax/auth-service:latest
     environment:
       DB_HOST: host.docker.internal
+      DB_PORT: ${DB_PORT}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${AUTH_DB_NAME}
@@ -28,6 +29,7 @@ services:
     image: ghcr.io/simning-ax/group-service:latest
     environment:
       DB_HOST: host.docker.internal
+      DB_PORT: ${DB_PORT}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${GROUP_DB_NAME}
@@ -38,6 +40,7 @@ services:
     image: ghcr.io/simning-ax/time-service:latest
     environment:
       DB_HOST: host.docker.internal
+      DB_PORT: ${DB_PORT}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${TIME_DB_NAME}
