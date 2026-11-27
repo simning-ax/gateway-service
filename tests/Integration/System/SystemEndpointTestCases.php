@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Integration\System;
 
 use PHPUnit\Framework\TestCase;
@@ -17,6 +19,4 @@ class SystemEndpointTestCases extends TestCase {
             ['time'],
         ];
     }
-
-
 }

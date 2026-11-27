@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Integration\System\Http\Proxy;
 
 use PHPUnit\Framework\TestCase;
@@ -16,6 +18,4 @@ class SystemEndpointTestCases extends TestCase {
             ['group'],
         ];
     }
-
-
 }

@@ -6,8 +6,6 @@ namespace Tests\Integration\System\Http\Proxy;
 
 use GuzzleHttp\Client;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Slim\Psr7\Factory\ServerRequestFactory;
-use Tests\Integration\BaseApiTestCases;
 
 final class ProxyEndpointTest extends SystemEndpointTestCases {
     #[DataProvider('endpointProvider')]

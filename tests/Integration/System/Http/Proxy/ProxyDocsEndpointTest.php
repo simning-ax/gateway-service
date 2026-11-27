@@ -8,9 +8,8 @@ use GuzzleHttp\Client;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 final class ProxyDocsEndpointTest extends SystemEndpointTestCases {
-
     #[DataProvider('services')]
-    public function testAllServicesExposeDocsEndpoint(string $service):void {
+    public function testAllServicesExposeDocsEndpoint(string $service) : void {
         $client = new Client();
 
         $response = $client->request(
