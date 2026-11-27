@@ -6,7 +6,7 @@ namespace App\Config;
 
 use RuntimeException;
 
-final class ServiceRegistry {
+class ServiceRegistry {
     /**
      * @param array<string,string> $services
      */

@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     volumes:
@@ -14,14 +16,32 @@ services:
   auth-service:
     container_name: auth-service
     image: ghcr.io/simning-ax/auth-service:latest
+    environment:
+      DB_HOST: host.docker.internal
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${AUTH_DB_NAME}
     restart: unless-stopped
 
   group-service:
     container_name: group-service
     image: ghcr.io/simning-ax/group-service:latest
+    environment:
+      DB_HOST: host.docker.internal
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${GROUP_DB_NAME}
     restart: unless-stopped
 
   time-service:
     container_name: time-service
     image: ghcr.io/simning-ax/time-service:latest
+    environment:
+      DB_HOST: host.docker.internal
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${TIME_DB_NAME}
     restart: unless-stopped

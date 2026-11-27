@@ -8,7 +8,7 @@ use App\Config\ServiceRegistry;
 use GuzzleHttp\ClientInterface;
 use Psr\Log\LoggerInterface;
 
-final class HealthService {
+class HealthService {
     public function __construct(
         private LoggerInterface $logger,
         private ClientInterface $httpClient,

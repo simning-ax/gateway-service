@@ -9,7 +9,7 @@ use App\Http\Actions\Action;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-final class ShowHealthAction extends Action {
+class ShowHealthAction extends Action {
     public function __construct(
         LoggerInterface $logger,
         private HealthService $healthService,
