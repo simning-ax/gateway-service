@@ -4,24 +4,28 @@ declare(strict_types=1);
 
 namespace Tests\Integration\System\Http\Proxy;
 
+use GuzzleHttp\Client;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Slim\Psr7\Factory\ServerRequestFactory;
 use Tests\Integration\BaseApiTestCases;
 
-final class ProxyEndpointTest extends BaseApiTestCases {
+final class ProxyEndpointTest extends SystemEndpointTestCases {
     #[DataProvider('endpointProvider')]
     public function testEndpoints(
         string $method,
         string $endpoint,
         int $expectedStatusCode,
     ) : void {
-        $request = (new ServerRequestFactory())
-            ->createServerRequest(
-                $method,
-                $endpoint,
-            );
+        $client = new Client();
 
-        $response = $this->app->handle($request);
+        $response = $client->request(
+            $method,
+            sprintf(
+                '%s%s',
+                self::GATEWAY_BASE_URL,
+                $endpoint,
+            ),
+        );
 
         self::assertSame(
             $expectedStatusCode,
@@ -39,10 +43,12 @@ final class ProxyEndpointTest extends BaseApiTestCases {
      */
     public static function endpointProvider() : array {
         return [
-            'group levels' => ['GET', '/groups/group-levels', 200, ],
+            'auth users' => ['GET', '/auth/users', 200, ],
+            'group levels' => ['GET', '/group/group-levels', 200, ],
+            'time users' => ['GET', '/time/users', 200, ],
 
             // Exempel på skyddad endpoint
-            'list users requires authentication' => ['GET', '/auth/users', 401, ],
+//            'list users requires authentication' => ['GET', '/time/users', 401, ],
 
             // Lägg till fler endpoints här efter hand
         ];

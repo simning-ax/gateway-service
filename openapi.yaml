@@ -2,7 +2,7 @@ openapi: 3.1.0
 
 info:
   title: Gateway Service API
-  version: 1.1.10
+  version: 1.1.11
   description: >-
     OpenAPI för hantering av gateway-servicen i simning.ax-miljön
 

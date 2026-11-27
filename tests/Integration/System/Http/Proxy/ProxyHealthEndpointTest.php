@@ -7,20 +7,9 @@ namespace Tests\System\Http\Proxy;
 use GuzzleHttp\Client;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
+use Tests\Integration\System\Http\Proxy\SystemEndpointTestCases;
 
-final class ProxyHealthEndpointTest extends TestCase {
-    private const GATEWAY_BASE_URL = 'http://localhost:8080';
-
-    /**
-     * @return array<int, list<string>>
-     */
-    public static function services() : array {
-        return [
-            ['auth'],
-            ['group'],
-        ];
-    }
-
+final class ProxyHealthEndpointTest extends SystemEndpointTestCases {
     #[DataProvider('services')]
     public function testAllServicesExposeHealthEndpoint(string $service) : void {
         $client = new Client();
